@@ -9,7 +9,6 @@ import json
 print("Script started...")
 
 URL = "https://www.highlandsatsugarloaf.com/floorplans"
-FILE = "highlands_rent_tracker.xlsx"
 
 EXTRA_COSTS = 344
 
@@ -78,8 +77,6 @@ else:
 
     new_df["Change"] = 0
     final_df = new_df
-
-final_df.to_excel(FILE, index=False)
 
 # -------- JSON DATA FOR ESP32 --------
 
