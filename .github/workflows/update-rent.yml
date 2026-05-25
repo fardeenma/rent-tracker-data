@@ -1,0 +1,36 @@
+name: Update Rent Data
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-rent:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run rent tracker
+        run: python rent_tracker.py
+
+      - name: Commit updated files
+        run: |
+          git config user.name "rent-tracker-bot"
+          git config user.email "rent-tracker-bot@users.noreply.github.com"
+          git add rent_data.json highlands_rent_tracker.xlsx
+          git commit -m "Update rent data" || echo "No changes to commit"
+          git push
