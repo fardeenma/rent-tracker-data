@@ -2,13 +2,13 @@
     "floorplans": [
         {
             "name": "The Grant",
-            "current": 1646,
-            "low": 1646,
+            "current": 1636,
+            "low": 1636,
             "high": 1799
         },
         {
             "name": "The Centennial",
-            "current": 1423,
+            "current": 1415,
             "low": 1393,
             "high": 1509
         }
